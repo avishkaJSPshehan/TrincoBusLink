@@ -1,1 +1,109 @@
-/*# sourceMappingURL=main.css.map */
+:root {
+  --PrimaryColor: hsl(199,100%,33%);
+  --SecondaryColor: hsl(187,85%,43%);
+  --gradientColor: linear-gradient(to right, hsl(187,85%,43%),hsl(199,100%,33%));
+  --whiteColor: hsl(0,0%,100%);
+  --blackColor: hsl(201,33%,16%);
+  --textColor: hsl(240,4%,36%);
+  --whiteColorDeam: hsl(0,0%,93%);
+  --grayText: rgb(190,190,190);
+  --inputColor: rgb(239,239,239);
+  --bodyColor: rgb(240,240,240);
+  --cardBG: rgb(255,255,255);
+}
+
+.about-section {
+  background: var(--cardBG);
+  padding: 60px 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+.about-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.about-section .about-heading {
+  color: var(--PrimaryColor);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: slideInFromTop 1s ease-in-out forwards;
+}
+.about-section .about-text {
+  color: var(--textColor);
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-in-out forwards;
+}
+.about-section .features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.about-section .features .feature {
+  background: var(--SecondaryColor);
+  color: var(--whiteColor);
+  margin: 10px;
+  padding: 20px;
+  width: 280px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 2s ease-in-out forwards;
+}
+.about-section .features .feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+.about-section .features .feature h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+.about-section .features .feature p {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .about-heading {
+    font-size: 2rem;
+  }
+  .about-text {
+    font-size: 1rem;
+  }
+  .features .feature {
+    width: 100%;
+  }
+}
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}/*# sourceMappingURL=main.css.map */
