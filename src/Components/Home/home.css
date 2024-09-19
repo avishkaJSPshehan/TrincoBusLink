@@ -52,7 +52,6 @@
   margin: auto;
   color: var(--whiteColor);
   z-index: 100;
-  opacity: 0.8;
 }
 .home .homeContent .textDiv {
   padding: 2rem 0;
@@ -68,14 +67,14 @@
 .home .homeContent .cardDiv {
   position: relative;
   padding: 2rem 1rem;
-  background: var(--whiteColor);
+  background: var();
   border-radius: 10px;
   gap: 1rem;
   opacity: 0.7;
 }
 .home .homeContent .cardDiv label {
   display: block;
-  color: var(--textColor);
+  color: var(--whiteColor);
   padding-bottom: 10px;
   font-size: 13px;
   font-weight: 500;
@@ -131,4 +130,63 @@
 }
 .home .homeContent .cardDiv .searchOptions span {
   font-size: 13px;
+}
+
+@media screen and (min-width: 500px) {
+  .home .homeContent .textDiv .smallText {
+    font-size: 16px;
+  }
+  .home .homeContent .textDiv .homeTitle {
+    position: relative;
+    font-size: 2.3rem;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .home .homeContent .textDiv .homeTitle::after {
+    position: absolute;
+    content: "";
+    background: var(--SecondaryColor);
+    height: 5px;
+    width: 225px;
+    right: 0px;
+    bottom: 5px;
+    z-index: -1;
+  }
+  .home .homeContent .cardDiv {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 660px) {
+  .home .homeContent .cardDiv {
+    padding: 2rem 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 940px) {
+  .home {
+    height: 70vh;
+  }
+}
+@media screen and (min-width: 1240px) {
+  .home {
+    height: 95vh;
+  }
+  .home .homeContent {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .home .homeContent .cardDiv {
+    padding: 2rem 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .home .homeContent .cardDiv .input {
+    margin-bottom: 1rem;
+  }
+  .home .homeContent .cardDiv .searchOptions {
+    bottom: -1rem;
+    padding: 8px 1rem;
+  }
+  .home .homeContent .cardDiv .searchOptions span {
+    font-size: 17px;
+  }
 }/*# sourceMappingURL=home.css.map */
