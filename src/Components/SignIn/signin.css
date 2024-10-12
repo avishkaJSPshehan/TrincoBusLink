@@ -1,0 +1,217 @@
+:root {
+    --PrimaryColor: hsl(199, 100%, 33%);
+    --SecondaryColor: hsl(187, 85%, 43%);
+    --textColor: hsl(240, 4%, 36%);
+    --whiteColor: hsl(0, 0%, 100%);
+    --bgColor: hsl(0, 0%, 95%);
+    --grayText: rgb(160, 160, 160);
+    --inputBG: hsl(0, 0%, 98%);
+    --inputBorder: hsl(199, 50%, 60%);
+    --inputFocusBorder: hsl(199, 80%, 40%);
+    --boxShadowColor: rgba(0, 0, 0, 0.05);
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bgColor);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 200px; /* Increased top padding */
+    height: 100vh;
+    background-image: url('D:/seat-booking-system/src/Assets/signin-bg 2.jpg'); /* Add your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  
+  .auth-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 1;
+    filter: blur(8px); /* Blur applied to the overlay */
+  }
+  
+  .auth-wrapper {
+    position: relative;
+    z-index: 2; /* Keep the form above the background */
+    background-color: transparent; /* Make wrapper transparent */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--boxShadowColor);
+    max-width: 380px; /* Smaller form width */
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .auth-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .auth-toggle-btn {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.8rem;
+    border: none;
+    cursor: pointer;
+    background-color: var(--whiteColor);
+    color: var(--PrimaryColor);
+    transition: all 0.3s ease;
+  }
+  
+  .auth-toggle-btn.active {
+    background-color: var(--PrimaryColor);
+    color: var(--whiteColor);
+    border-radius: 8px;
+  }
+  
+  .auth-title {
+    font-size: 1.5rem; /* Smaller title */
+    color: var(--PrimaryColor);
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .auth-input-group {
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .auth-input-group input {
+    width: 100%;
+    padding: 10px; /* Smaller padding */
+    font-size: 0.8rem; /* Smaller text */
+    background-color: var(--inputBG);
+    border: 2px solid var(--inputBorder);
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .auth-input-group input:focus {
+    border-color: var(--inputFocusBorder);
+    outline: none;
+  }
+  
+  .auth-btn {
+    padding: 10px; /* Smaller padding */
+    width: 100%;
+    background-color: var(--PrimaryColor);
+    color: var(--whiteColor);
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem; /* Smaller font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .auth-btn:hover {
+    background-color: var(--SecondaryColor);
+  }
+  
+  .auth-footer-text {
+    margin-top: 6px;
+    font-size: 0.75rem; /* Smaller text */
+    color: var(--grayText);
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .auth-footer-text:hover {
+    color: var(--PrimaryColor);
+  }
+  
+  .forgot-password {
+    margin-top: 15px;
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--PrimaryColor);
+    cursor: pointer;
+  }
+  
+  .forgot-password:hover {
+    color: var(--SecondaryColor);
+  }
+  
+  /* Laptop and larger screens */
+  @media (min-width: 1024px) {
+    .auth-wrapper {
+      padding: 30px;
+      max-width: 400px;
+    }
+  
+    .auth-title {
+      font-size: 1.6rem;
+    }
+  
+    .auth-input-group input {
+      padding: 12px;
+      font-size: 0.85rem;
+    }
+  
+    .auth-btn {
+      padding: 12px;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Tablet and smaller */
+  @media (max-width: 768px) {
+    .auth-wrapper {
+      padding: 20px;
+    }
+  
+    .auth-title {
+      font-size: 1.4rem;
+    }
+  
+    .auth-input-group input {
+      padding: 10px;
+      font-size: 0.8rem;
+    }
+  
+    .auth-btn {
+      padding: 10px;
+      font-size: 0.85rem;
+    }
+  }
+  
+  /* Mobile phones */
+  @media (max-width: 480px) {
+    .auth-wrapper {
+      padding: 15px;
+    }
+  
+    .auth-title {
+      font-size: 1.2rem;
+    }
+  
+    .auth-input-group input {
+      padding: 8px;
+      font-size: 0.75rem;
+    }
+  
+    .auth-btn {
+      padding: 8px;
+      font-size: 0.8rem;
+    }
+  
+    .forgot-password {
+      font-size: 0.7rem;
+    }
+  }
+  

@@ -32,8 +32,8 @@ const Navbar = () => {
             {/* <li className="navItem">
               <Link to={"/"}>Home</Link>
             </li> */}
-            <button className="btn">
-              <a href="#">SIGN IN</a>
+            <button className="btn">  
+              <Link to={"/signin"}>SIGN IN</Link>
             </button>
           </ul>
 
