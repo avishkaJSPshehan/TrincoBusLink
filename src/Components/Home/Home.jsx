@@ -30,7 +30,7 @@ const Home = () => {
     axios.post('http://localhost:3001/', formData)
       .then(response => {
         console.log('Success:', response.data);
-        if (response.data === "Success") {
+        if (response.data) {
           navigate("/find-a-bus");
         }
         // You can handle success here, e.g., redirecting or displaying a message
@@ -61,6 +61,7 @@ const Home = () => {
                 placeholder="From..."
                 value={fromLocation}
                 onChange={(e) => setFromLocation(e.target.value)} // Update state
+                required
               />
               <GrLocation className="icon" />
             </div>
@@ -74,6 +75,7 @@ const Home = () => {
                 placeholder="To..."
                 value={toLocation}
                 onChange={(e) => setToLocation(e.target.value)} // Update state
+                required
               />
               <GrLocation className="icon" />
             </div>
