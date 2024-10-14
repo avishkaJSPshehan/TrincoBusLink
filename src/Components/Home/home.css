@@ -53,6 +53,7 @@
   color: var(--whiteColor);
   z-index: 100;
 }
+
 .home .homeContent .textDiv {
   padding: 2rem 0;
 }
@@ -122,6 +123,21 @@
   justify-content: center;
   cursor: pointer;
 }
+
+.find-bus-form{
+  display: flex;
+  width: 100%;
+  
+}
+.searchOptions button{
+  background: transparent;
+
+}
+
+.searchOptions button:hover{
+  background: var(--PrimaryColor);
+}
+
 .home .homeContent .cardDiv .searchOptions:hover {
   background: var(--PrimaryColor);
 }
