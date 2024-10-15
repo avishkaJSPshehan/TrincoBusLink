@@ -1,0 +1,233 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif; /* Use a clean, modern font */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.bus-search-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 80px 20px 20px;
+}
+
+/* Header */
+.bus-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00164c;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    margin-bottom: 30px;
+    border-radius: 8px; /* Round the corners of the header */
+}
+
+.bus-header span {
+    font-weight: 500;
+}
+
+.arrow {
+    margin: 0 10px;
+    font-size: 20px; /* Make arrow stand out */
+}
+
+/* Sort Options */
+.sort-options {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    background-color: #f1f1f1;
+    font-weight: bold;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for modern feel */
+}
+
+/* Bus Card */
+.bus-card {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensure elements wrap on smaller screens */
+    padding: 30px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Light shadow for modernity */
+}
+
+.bus-card:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.bus-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Better spacing for content */
+    max-width: 70%;
+}
+
+.bus-image img {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Image shadow */
+}
+
+.bus-info {
+    margin-left: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%; /* Occupy remaining space */
+}
+
+.route-info {
+    font-size: 22px;
+    font-weight: 600;
+    color: #00164c; /* Make route name pop */
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.time-info {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666; /* Subtle color for time info */
+}
+
+.bus-details-info {
+    font-size: 14px;
+    color: #666; /* Lighter color for details */
+}
+
+.bus-details-info span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Price Info */
+.price-info {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff7f50;
+}
+
+.book-btn {
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.book-btn:hover {
+    background-color: #e76f44; /* Darker orange on hover */
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 768px) {
+    .bus-search-container {
+        padding: 80px 15px 20px; /* Add some padding for mobile */
+
+    }
+
+    .bus-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px; /* Reduce padding */
+    }
+
+    .sort-options {
+        display: none;
+    }
+
+    .bus-card {
+        flex-direction: column;
+        padding: 20px;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+
+    .bus-details {
+        flex-direction: column; /* Change to column for better stacking */
+        align-items: center; /* Center align items */
+        width: 100%; /* Ensure it takes full width */
+        text-align: center; /* Center text within the details */
+    }
+
+    .bus-image img {
+        width: 100%; /* Ensure full width for image on mobile */
+        margin-bottom: 15px;
+    }
+
+    .bus-info {
+        margin-left: 0; /* Remove left margin */
+        width: 100%; /* Make full width */
+        align-items: center;
+    }
+
+    .price-info {
+        align-items: center; /* Center align price info */
+        text-align: center; /* Center text */
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .price {
+        font-size: 24px;
+    }
+
+    .book-btn {
+        width: 100%;
+        font-size: 18px;
+    }
+}
+
+/* Additional media query for extra small devices */
+@media only screen and (max-width: 480px) {
+    .bus-search-container {
+        padding: 50px 10px 10px; /* Reduce padding for extra small screens */
+    }
+
+    .bus-card {
+        padding: 20px; /* Reduce card padding */
+    }
+
+    .price {
+        font-size: 20px; /* Further adjust price font size */
+    }
+
+    .book-btn {
+        font-size: 16px;
+    }
+
+    .bus-header {
+        padding: 10px; /* Further reduce padding */
+        margin-bottom: 15px;
+    }
+
+    .bus-details {
+        width: 100%; /* Ensure it takes full width on small screens */
+        align-items: center; /* Center align items */
+        text-align: center; /* Center text within the details */
+    }
+}
