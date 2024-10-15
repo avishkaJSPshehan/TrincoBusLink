@@ -9,8 +9,8 @@ import axios from 'axios'; // Import Axios
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const [fromLocation, setFromLocation] = useState('');
-  const [toLocation, setToLocation] = useState('');
+  const [departure, setDeparture] = useState('');
+  const [arrival, setArrival] = useState('');
   const [travelDate, setTravelDate] = useState('');
   const navigate = useNavigate();
 
@@ -21,25 +21,24 @@ const Home = () => {
   const handleFindBus = () => {
     // Create the data object
     const formData = {
-      fromLocation,
-      toLocation,
+      departure,
+      arrival,
       travelDate,
     };
-
-    // Send the data to the backend
+  
+    // Send the data to the backend using POST
     axios.post('http://localhost:3001/', formData)
       .then(response => {
         console.log('Success:', response.data);
         if (response.data) {
           navigate("/find-a-bus");
         }
-        // You can handle success here, e.g., redirecting or displaying a message
       })
       .catch(error => {
         console.error('Error:', error);
-        // Handle the error appropriately
       });
   };
+  
 
   return (
     <section className="home">
@@ -59,8 +58,8 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="From..."
-                value={fromLocation}
-                onChange={(e) => setFromLocation(e.target.value)} // Update state
+                value={departure}
+                onChange={(e) => setDeparture(e.target.value)} // Update state
                 required
               />
               <GrLocation className="icon" />
@@ -73,8 +72,8 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="To..."
-                value={toLocation}
-                onChange={(e) => setToLocation(e.target.value)} // Update state
+                value={arrival}
+                onChange={(e) => setArrival(e.target.value)} // Update state
                 required
               />
               <GrLocation className="icon" />
