@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./BusSearch.css";
 import busImage from '../../Assets/bus_1.jpg'; // Default image
+import { Link } from "react-router-dom";
 
 const BusSearch = () => {
   const [buses, setBuses] = useState([]);  // State to store bus details
@@ -17,8 +18,8 @@ const BusSearch = () => {
             'Content-Type': 'application/json'  // Ensure that the content type is set
           },
           body: JSON.stringify({
-            departure: 'ANURADHAPURA',  // Replace with your actual departure value
-            arrival: 'COLOMBO',         // Replace with your actual arrival value
+            departure: "ANURADHAPURA",  // Replace with your actual departure value
+            arrival: "COLOMBO",         // Replace with your actual arrival value
             travelDate: '2024-10-15'    // Optionally add the travelDate if needed
           })
         });
@@ -51,9 +52,9 @@ const BusSearch = () => {
     <div className="bus-search-container">
       {/* Header Section */}
       <div className="bus-header">
-        <span>Anuradhapura</span>
+        <span>ANURADHAPURA</span>
         <span className="arrow">→</span>
-        <span>Colombo</span>
+        <span>COLOMBO</span>
         <span>2024-10-15</span>
       </div>
 
@@ -87,7 +88,9 @@ const BusSearch = () => {
           <div className="price-info">
             <span className="price">{bus.price}</span>
             <span>Available Seats: {bus.availableSeats}</span>
-            <button className="book-btn">Book Seat</button>
+            
+            <Link to={"/book-seat"} className="book-btn">Book Seat</Link>
+            
           </div>
         </div>
       ))}
