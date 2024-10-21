@@ -7,6 +7,7 @@ import SignInPage from "./pages/signin-page";
 import LogInPage from "./pages/login-page";
 import FindABus from "./pages/find-a-bus-page";
 import BookSeat from "./pages/seat-book-page";
+import AdminDashboard from "./pages/admin-dashboard";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/login" element={<LogInPage />} />
           <Route path="/find-a-bus" element={<FindABus />} />
           <Route path="/book-seat" element={<BookSeat />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Routes>
       </BrowserRouter>
     </>

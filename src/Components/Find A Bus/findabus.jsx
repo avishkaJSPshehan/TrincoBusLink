@@ -87,7 +87,7 @@ const BusSearch = ({ departure, arrival, busData, travelDate }) => {
 
           <div className="price-info">
             <span className="price">{bus.price}</span>
-            <span>Available Seats: {bus.availableSeats}</span>
+            <span >Available Seats: {bus.availableSeats}</span>
 
             <Link to={"/book-seat"} className="book-btn">
               Book Seat

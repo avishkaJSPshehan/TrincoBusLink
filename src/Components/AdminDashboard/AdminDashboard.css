@@ -1,0 +1,154 @@
+/* General Layout */
+.admin-dashboard {
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: #333;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modern-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+.crud-form .form-title,
+.bus-list .table-title {
+  text-align: center;
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: border 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+}
+
+.submit-btn {
+  grid-column: span 2;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Table Styling */
+.bus-list {
+  margin-top: 30px;
+}
+
+.bus-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.bus-table th,
+.bus-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.bus-table th {
+  background-color: #007bff;
+  color: white;
+  text-transform: uppercase;
+}
+
+.bus-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.bus-table td {
+  color: #333;
+}
+
+/* Action Buttons */
+.edit-btn,
+.delete-btn {
+  padding: 8px 12px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .form-content {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-btn {
+    grid-column: span 1;
+  }
+}
