@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./navbar.css";
 import { MdOutlineTravelExplore } from "react-icons/md";
 import { AiFillCloseCircle } from "react-icons/ai";
@@ -7,6 +7,12 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState("navBar");
+  const [username, setUsername] = useState(null);
+
+  useEffect(() => {
+    const u = sessionStorage.getItem("username");
+    if (u) setUsername(u);
+  }, []);
 
   const showNav = () => {
     setActive("navBar activeNavbar");
@@ -32,9 +38,25 @@ const Navbar = () => {
             {/* <li className="navItem">
               <Link to={"/"}>Home</Link>
             </li> */}
-            <button className="btn">  
-              <Link to={"/login"}>SIGN IN</Link>
-            </button>
+            {username ? (
+              <>
+                <h1>Hello, {username}</h1>
+                <button
+                  className="btn"
+                  onClick={() => {
+                    sessionStorage.clear();
+                  }}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <button className="btn">
+                  <Link to={"/login"}>SIGN IN</Link>
+                </button>
+              </>
+            )}
           </ul>
 
           <div onClick={removeNavbar} className="closeNavbar">

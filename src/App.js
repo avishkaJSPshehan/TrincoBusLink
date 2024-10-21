@@ -8,7 +8,6 @@ import LogInPage from "./pages/login-page";
 import FindABus from "./pages/find-a-bus-page";
 import BookSeat from "./pages/seat-book-page";
 
-
 const App = () => {
   return (
     <>
