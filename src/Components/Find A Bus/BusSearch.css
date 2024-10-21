@@ -201,6 +201,10 @@ body {
     width: 100%;
     font-size: 18px;
   }
+
+  .route-info-search{
+    flex-direction: column;
+  }
 }
 
 /* Additional media query for extra small devices */
@@ -224,11 +228,23 @@ body {
   .bus-header {
     padding: 10px; /* Further reduce padding */
     margin-bottom: 15px;
+    /* font-size: 30px; */
   }
 
   .bus-details {
     width: 100%; /* Ensure it takes full width on small screens */
     align-items: center; /* Center align items */
     text-align: center; /* Center text within the details */
+  }
+
+  .route-info-search{
+    flex-direction: column;
+  }
+
+  .price {
+    align-items: center; /* Center align price info */
+    text-align: center; /* Center text */
+    margin-top: 20px;
+    width: 100%;
   }
 }
