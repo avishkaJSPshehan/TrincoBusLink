@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const AddBus = () => {
+const AddBus = ({ busToUpdate, setBusToUpdate }) => {
   const [buses, setBuses] = useState([]);
   const [formData, setFormData] = useState({
     departure: "",
@@ -15,6 +15,28 @@ const AddBus = () => {
     price: "",
     availableSeats: "",
   });
+
+  useEffect(() => {
+    console.log("updating");
+    if (busToUpdate) {
+      setFormData(busToUpdate);
+    } else {
+      setFormData({
+        departure: "",
+        arrival: "",
+        departureTime: "",
+        arrivalTime: "",
+        duration: "",
+        busType: "",
+        model: "",
+        scheduled: "",
+        depotName: "",
+        price: "",
+        availableSeats: "",
+      });
+    }
+  }, []);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -23,15 +45,16 @@ const AddBus = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (formData.id) {
+      if (formData._id) {
         // Update existing bus
         await axios.put(
-          `http://localhost:3001/admin-dashboard/${formData.id}`,
+          `http://localhost:3001/bus/update/${formData._id}`,
           formData
         );
       } else {
         // Create new bus
-        await axios.post("http://localhost:3001/admin-dashboard", formData);
+        const res = await axios.post("http://localhost:3001/bus", formData);
+        console.log(res);
       }
 
       setFormData({
@@ -63,6 +86,23 @@ const AddBus = () => {
   const handleUpdate = (id) => {
     const busToUpdate = buses.find((bus) => bus.id === id);
     setFormData(busToUpdate);
+  };
+
+  const handleClear = () => {
+    setFormData({
+      departure: "",
+      arrival: "",
+      departureTime: "",
+      arrivalTime: "",
+      duration: "",
+      busType: "",
+      model: "",
+      scheduled: "",
+      depotName: "",
+      price: "",
+      availableSeats: "",
+    });
+    setBusToUpdate(null);
   };
 
   return (
@@ -188,8 +228,23 @@ const AddBus = () => {
               required
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="owner">Owner</label>
+            <input
+              disabled
+              type="text"
+              name="owner"
+              value={formData.owner}
+              onChange={handleInputChange}
+              placeholder="Owner"
+              required
+            />
+          </div>
           <button type="submit" className="submit-btn">
-            {formData.id ? "Update Bus" : "Add Bus"}
+            {formData._id ? "Update Bus" : "Add Bus"}
+          </button>
+          <button type="reset" className="submit-btn" onClick={handleClear}>
+            Clear
           </button>
         </form>
       </div>

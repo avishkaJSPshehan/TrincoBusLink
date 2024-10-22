@@ -65,8 +65,8 @@
 }
 
 .submit-btn {
-  grid-column: span 2;
-  padding: 12px 20px;
+  /* grid-column: span 2; */
+  /* padding: 12px 20px; */
   background-color: #007bff;
   color: #fff;
   border: none;

@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const ViewBus = () => {
+
+const ViewBus = ({ handleDelete, handleUpdate }) => {
+  useEffect(() => {
+    fetchBusses();
+  }, []);
+  const fetchBusses = async () => {
+    const res = await axios.get("http://localhost:3001/bus/all");
+    const data = res.data;
+    setBuses(data);
+  };
+
   const [buses, setBuses] = useState([]);
   return (
     <>
@@ -38,8 +48,18 @@ const ViewBus = () => {
                 <td>{bus.price}</td>
                 <td>{bus.availableSeats}</td>
                 <td>
-                  <button className="edit-btn">Edit</button>
-                  <button className="delete-btn">Delete</button>
+                  <button
+                    className="edit-btn"
+                    onClick={() => handleUpdate(bus)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(bus.id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
