@@ -19,7 +19,7 @@ body {
   align-items: flex-start;
   padding-top: 220px; /* Adjust padding to fit larger screens */
   height: 100vh;
-  background-image: url('D:/seat-booking-system/src/Assets/signin-bg 2.jpg');
+  background-image: url("../../Assets/signin-bg\ 2.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
