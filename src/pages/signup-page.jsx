@@ -1,15 +1,14 @@
 import React from "react";
 import Navbar from "../Components/Navbar/Navbar";
-import AuthPage from "../Components/SignIn/signin";
+import SignUp from "../Components/Auth/signup";
 
-
-const SignInPage = () => {
+const SignUpPage = () => {
   return (
     <div>
       <Navbar />
-      <AuthPage />
+      <SignUp />
     </div>
   );
 };
 
-export default SignInPage;
+export default SignUpPage;
