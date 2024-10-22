@@ -18,7 +18,12 @@ const Login = () => {
           const user = result.data.user;
           sessionStorage.setItem("username", user.name);
           sessionStorage.setItem("role", user.role);
-          navigate("/");
+
+          if (user.role === "admin") {
+            navigate("/admin-dashboard");
+          } else {
+            navigate("/");
+          }
         }
       })
       .catch((err) => console.log(err));
