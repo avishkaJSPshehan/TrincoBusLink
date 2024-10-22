@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
@@ -17,32 +18,60 @@ const AdminDashboard = () => {
     availableSeats: "",
   });
 
+  useEffect(() => {
+    fetchBuses();
+  }, []);
+
+  const fetchBuses = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/admin-dashboard");
+      setBuses(response.data);
+    } catch (error) {
+      console.error("Error fetching buses:", error);
+    }
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const newBus = { ...formData, id: Date.now() };
-    setBuses([...buses, newBus]);
-    setFormData({
-      departure: "",
-      arrival: "",
-      departureTime: "",
-      arrivalTime: "",
-      duration: "",
-      busType: "",
-      model: "",
-      scheduled: "",
-      depotName: "",
-      price: "",
-      availableSeats: "",
-    });
+    try {
+      if (formData.id) {
+        // Update existing bus
+        await axios.put(`http://localhost:3001/admin-dashboard/${formData.id}`, formData);
+      } else {
+        // Create new bus
+        await axios.post("http://localhost:3001/admin-dashboard", formData);
+      }
+      fetchBuses(); // Refresh the bus list
+      setFormData({
+        departure: "",
+        arrival: "",
+        departureTime: "",
+        arrivalTime: "",
+        duration: "",
+        busType: "",
+        model: "",
+        scheduled: "",
+        depotName: "",
+        price: "",
+        availableSeats: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
-  const handleDelete = (id) => {
-    setBuses(buses.filter((bus) => bus.id !== id));
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/admin-dashboard/${id}`);
+      fetchBuses();
+    } catch (error) {
+      console.error("Error deleting bus:", error);
+    }
   };
 
   const handleUpdate = (id) => {
