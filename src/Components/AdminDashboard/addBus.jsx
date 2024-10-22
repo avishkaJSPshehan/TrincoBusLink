@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { cities } from "../../constants/cities";
+import { useNavigate } from "react-router-dom";
 const AddBus = ({ busToUpdate, setBusToUpdate }) => {
+  const navigate = useNavigate();
   const [buses, setBuses] = useState([]);
   const [formData, setFormData] = useState({
     departure: "",
@@ -51,10 +54,11 @@ const AddBus = ({ busToUpdate, setBusToUpdate }) => {
           `http://localhost:3001/bus/update/${formData._id}`,
           formData
         );
+        navigate(0);
       } else {
         // Create new bus
-        const res = await axios.post("http://localhost:3001/bus", formData);
-        console.log(res);
+        await axios.post("http://localhost:3001/bus", formData);
+        navigate(0);
       }
 
       setFormData({
@@ -73,19 +77,6 @@ const AddBus = ({ busToUpdate, setBusToUpdate }) => {
     } catch (error) {
       console.error("Error submitting form:", error);
     }
-  };
-
-  const handleDelete = async (id) => {
-    try {
-      await axios.delete(`http://localhost:3001/admin-dashboard/${id}`);
-    } catch (error) {
-      console.error("Error deleting bus:", error);
-    }
-  };
-
-  const handleUpdate = (id) => {
-    const busToUpdate = buses.find((bus) => bus.id === id);
-    setFormData(busToUpdate);
   };
 
   const handleClear = () => {
@@ -112,25 +103,33 @@ const AddBus = ({ busToUpdate, setBusToUpdate }) => {
         <form onSubmit={handleSubmit} className="form-content">
           <div className="form-group">
             <label htmlFor="departure">Departure</label>
-            <input
+            <select
               type="text"
               name="departure"
               value={formData.departure}
               onChange={handleInputChange}
-              placeholder="Departure"
               required
-            />
+            >
+              <option>Departure</option>
+              {cities.map((city) => (
+                <option value={city}>{city}</option>
+              ))}
+            </select>
           </div>
           <div className="form-group">
             <label htmlFor="arrival">Arrival</label>
-            <input
+            <select
               type="text"
               name="arrival"
               value={formData.arrival}
               onChange={handleInputChange}
-              placeholder="Arrival"
               required
-            />
+            >
+              <option>Arrival</option>
+              {cities.map((city) => (
+                <option value={city}>{city}</option>
+              ))}
+            </select>
           </div>
           <div className="form-group">
             <label htmlFor="departureTime">Departure Time</label>

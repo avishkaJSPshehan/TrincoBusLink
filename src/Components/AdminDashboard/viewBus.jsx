@@ -35,7 +35,7 @@ const ViewBus = ({ handleDelete, handleUpdate }) => {
           </thead>
           <tbody>
             {buses.map((bus) => (
-              <tr key={bus.id}>
+              <tr key={bus._id}>
                 <td>{bus.departure}</td>
                 <td>{bus.arrival}</td>
                 <td>{bus.departureTime}</td>
@@ -56,7 +56,7 @@ const ViewBus = ({ handleDelete, handleUpdate }) => {
                   </button>
                   <button
                     className="delete-btn"
-                    onClick={() => handleDelete(bus.id)}
+                    onClick={() => handleDelete(bus._id)}
                   >
                     Delete
                   </button>
