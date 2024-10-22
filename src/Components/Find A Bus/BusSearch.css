@@ -98,14 +98,18 @@ body {
 }
 
 .time-info {
-  margin: 5px 0;
+  margin: 10px 0;
+  display: flex;
   font-size: 14px;
   color: #666; /* Subtle color for time info */
+  justify-content: space-around;
 }
 
 .bus-details-info {
   font-size: 14px;
   color: #666; /* Lighter color for details */
+  justify-content: space-around;
+  display: block;
 }
 
 .bus-details-info span {
