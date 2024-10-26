@@ -32,7 +32,7 @@ const Home = () => {
 
     // Send the data to the backend using POST
     axios
-      .post("http://localhost:3001/", formData)
+      .post("http://localhost:3001/bus/search", formData)
       .then((response) => {
         console.log("Success:", response.data);
         setBusData(response.data);
@@ -83,17 +83,17 @@ const Home = () => {
               <label htmlFor="to">Where You Want to Go:</label>
               <div className="input flex">
                 <select
-              type="text"
-              name="arrival"
-              value={arrival}
-              onChange={(e) => setArrival(e.target.value)}
-              required
-            >
-              <option>To ...</option>
-              {cities.map((city) => (
-                <option value={city}>{city}</option>
-              ))}
-            </select>
+                  type="text"
+                  name="arrival"
+                  value={arrival}
+                  onChange={(e) => setArrival(e.target.value)}
+                  required
+                >
+                  <option>To ...</option>
+                  {cities.map((city) => (
+                    <option value={city}>{city}</option>
+                  ))}
+                </select>
                 <GrLocation className="icon" />
               </div>
             </div>
