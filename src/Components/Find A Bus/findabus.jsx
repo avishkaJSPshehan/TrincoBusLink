@@ -59,7 +59,7 @@ const BusSearch = ({ departure, arrival, busData, travelDate }) => {
       </div>
       {/* Bus Card Section */}
       {busData.map((bus) => (
-        <div key={bus.id} className="bus-card">
+        <div key={bus._id} className="bus-card">
           <div className="bus-details">
             <div className="bus-image">
               <img src={busImage} alt="Bus" />{" "}
@@ -87,9 +87,12 @@ const BusSearch = ({ departure, arrival, busData, travelDate }) => {
 
           <div className="price-info">
             <span className="price">Rs.{bus.price}.00</span>
-            <span >Available Seats: {bus.availableSeats}</span>
+            <span>Available Seats: {bus.availableSeats}</span>
 
-            <Link to={"/book-seat"} className="book-btn">
+            <Link
+              to={`/book-seat?id=${bus._id}&date=${travelDate}`}
+              className="book-btn"
+            >
               Book Seat
             </Link>
           </div>
