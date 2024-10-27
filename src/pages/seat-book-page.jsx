@@ -5,6 +5,7 @@ import BusDetails from "../Components/Book Seat/BusDetails";
 import SeatChart from "../Components/Book Seat/SeatChart";
 import FareBreakdown from "../Components/Book Seat/FareBreakdown";
 import axios from "axios";
+import SeatSelect from "../Components/Book Seat/SeatSelect";
 
 const BookSeat = () => {
   const params = new URLSearchParams(window.location.search);
@@ -23,7 +24,8 @@ const BookSeat = () => {
     <div>
       <Navbar />
       {bus && <BusDetails bus={bus} date={date} />}
-      <SeatChart />
+      {/* <SeatChart /> */}
+      <SeatSelect />
       <FareBreakdown />
       <Footer />
     </div>

@@ -1,0 +1,80 @@
+.select-container{
+    width: 100%;
+    padding-left: 7%;
+    padding-right: 7%;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.bus-layout {
+    display: flex;
+    padding-top: 3% ;
+    padding-left: 30%;
+  }
+  
+  .driver {
+    width: 60px;
+    height: 60px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  .seat {
+    width: 40px;
+    height: 40px;
+    background-color: green;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .empty{
+    width: 40px;
+    height: 40px;
+  }
+
+  .bus-seats{
+    display: flex;
+    gap: 10px;
+  }
+
+  .seat-row{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .selected {
+    background-color: blue;
+  }
+  
+  .processing {
+    background-color: orange;
+  }
+  
+  .booked {
+    background-color: red;
+    cursor: not-allowed;
+  }
+
+  .proceed-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: orange;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .proceed-btn:hover {
+    background-color: darkorange;
+  }
+  
