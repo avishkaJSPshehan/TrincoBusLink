@@ -24,12 +24,15 @@ const BookSeat = () => {
     })();
   }, []);
 
+  const userId = sessionStorage.getItem("userId");
+  if (!userId) return navigate("/login");
+
   const handleProceed = async (selecteSeats) => {
     if (!selecteSeats[0]) return;
     const res = await axios.post("http://localhost:3001/bus/book", {
       busId: busId,
       date: date,
-      userId: "test_user",
+      userId: userId,
       seats: selecteSeats,
     });
 

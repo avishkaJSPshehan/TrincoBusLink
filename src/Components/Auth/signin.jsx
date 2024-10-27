@@ -18,6 +18,7 @@ const Login = () => {
           const user = result.data.user;
           sessionStorage.setItem("username", user.name);
           sessionStorage.setItem("role", user.role);
+          sessionStorage.setItem("userId", user._id);
 
           if (user.role === "admin") {
             navigate("/admin-dashboard");

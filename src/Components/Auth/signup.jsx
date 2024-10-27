@@ -23,6 +23,7 @@ const SignUp = () => {
         if (result.status === 200) {
           sessionStorage.setItem("username", name);
           sessionStorage.setItem("role", "user");
+          sessionStorage.setItem("userId", result.data._id);
           navigate("/");
         }
       })
