@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SeatChart.css";
-import Steering from '../../Assets/steering.jpg';
+import Steering from "../../Assets/steering.jpg";
 
 const SeatChart = () => {
   const [selectedSeats, setSelectedSeats] = useState([]);
@@ -11,6 +11,8 @@ const SeatChart = () => {
     } else {
       setSelectedSeats([...selectedSeats, seatNumber]);
     }
+
+    console.log(selectedSeats)
   };
 
   const renderSeat = (seatNumber, className = "") => {
@@ -47,7 +49,7 @@ const SeatChart = () => {
         <div className="bus-rows">
           {/* Row 1 to 3 - Left side */}
           <div className="row">
-            {renderSeat(5, "processing")}
+            {renderSeat(5)}
             {renderSeat(10)}
             {renderSeat(15)}
             {renderSeat(20)}
@@ -61,7 +63,7 @@ const SeatChart = () => {
           </div>
 
           <div className="row">
-            {renderSeat(4, "processing")}
+            {renderSeat(4)}
             {renderSeat(9)}
             {renderSeat(14)}
             {renderSeat(19)}
@@ -75,7 +77,7 @@ const SeatChart = () => {
           </div>
 
           <div className="row">
-            {renderSeat(3, "processing")}
+            {renderSeat(3)}
             {renderSeat(8)}
             {renderSeat(13)}
             {renderSeat(18)}
@@ -88,10 +90,10 @@ const SeatChart = () => {
             {renderSeat(49)}
           </div>
 
-        <br/>
+          <br />
           {/* Row 4 to 5 - Right side */}
           <div className="row">
-            {renderSeat(2, "processing")}
+            {renderSeat(2)}
             {renderSeat(7)}
             {renderSeat(12)}
             {renderSeat(17)}
@@ -105,12 +107,12 @@ const SeatChart = () => {
           </div>
 
           <div className="row">
-            {renderSeat(1, "processing")}
+            {renderSeat(1)}
             {renderSeat(6)}
             {renderSeat(11)}
             {renderSeat(16)}
             {renderSeat(21)}
-            {renderSeat(26, "booked")}
+            {renderSeat(26)}
             {renderSeat(31)}
             {renderSeat(36)}
             {renderSeat(41)}

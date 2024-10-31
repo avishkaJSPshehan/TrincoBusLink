@@ -2,14 +2,14 @@ import React from "react";
 import "./BusDetails.css";
 import busImage from "../../Assets/bus_1.jpg";
 
-const BusDetails = () => {
+const BusDetails = ({ bus, date }) => {
   return (
     <div className="bus-details-container">
       <div className="route-header">
-        <h2>Stops @ Anuradhapura</h2>
+        <h2>Stops @ {bus.arrival}</h2>
         <div className="price-info">
-          <span>Rs. 981.50</span>
-          <span>Available Seats: 46</span>
+          <span>Rs. {bus.price}</span>
+          <span>Available Seats: {bus.availableSeats}</span>
         </div>
       </div>
       <div className="bus-summary">
@@ -18,22 +18,22 @@ const BusDetails = () => {
         </div>
         <div className="route-info">
           <div className="route">
-            <span>Departure: Horowpothana</span>
+            <span>Departure: {bus.depature}</span>
             <span className="arrow">→</span>
-            <span>Arrival: Colombo</span>
+            <span>Arrival: {bus.arrival}</span>
           </div>
-          <div className="timing">
-            <span>Date: 2024-10-20</span>
-            <span>Time: 18:15</span>
+          <div className="timing bus-info">
+            <span>Date: {date}</span>
+            <span>Time: {bus.departureTime}</span>
           </div>
           <div className="duration">
-            <span>Duration: 06:00 Hours</span>
+            <span>Duration: {bus.duration} Hours</span>
           </div>
           <div className="bus-info">
-            <span>Bus Type: Normal</span>
-            <span>Model: Ashok Leyland</span>
+            <span>Bus Type: {bus.busType}</span>
+            <span>Model: {bus.model}</span>
             <span>Bus Schedule ID: HP15-1815-HC</span>
-            <span>Depot Name: Horowpothana</span>
+            <span>Depot Name: {bus.depotName}</span>
           </div>
         </div>
       </div>

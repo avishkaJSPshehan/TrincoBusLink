@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Components/Navbar/Navbar";
-import BusSearch from "../Components/Find A Bus/findabus";
-import Footer from "../Components/Footer/Footer";
 import AdminDashboard from "../Components/AdminDashboard/AdminDashboard";
+import { useNavigate } from "react-router-dom";
 
-const adminDashboard = () => {
+const AdminDashboardPage = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const username = sessionStorage.getItem("username");
+    const role = sessionStorage.getItem("role");
+    if (!username || role !== "admin") {
+      navigate("/");
+    }
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -13,4 +21,4 @@ const adminDashboard = () => {
   );
 };
 
-export default adminDashboard;
+export default AdminDashboardPage;

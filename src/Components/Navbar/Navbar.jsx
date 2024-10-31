@@ -4,6 +4,7 @@ import { MdOutlineTravelExplore } from "react-icons/md";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { TbGridDots } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import Logout from "../Auth/signout";
 
 const Navbar = () => {
   const [active, setActive] = useState("navBar");
@@ -41,14 +42,7 @@ const Navbar = () => {
             {username ? (
               <>
                 <h1>Hello, {username}</h1>
-                <button
-                  className="btn"
-                  onClick={() => {
-                    sessionStorage.clear();
-                  }}
-                >
-                  Logout
-                </button>
+                <Logout />
               </>
             ) : (
               <>

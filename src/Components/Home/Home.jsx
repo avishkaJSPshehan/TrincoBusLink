@@ -9,6 +9,7 @@ import axios from "axios"; // Import Axios
 import { useNavigate } from "react-router-dom";
 import FindABus from "../../pages/find-a-bus-page";
 import BusSearch from "../Find A Bus/findabus";
+import { cities } from "../../constants/cities";
 
 const Home = () => {
   const [departure, setDeparture] = useState("");
@@ -31,7 +32,7 @@ const Home = () => {
 
     // Send the data to the backend using POST
     axios
-      .post("http://localhost:3001/", formData)
+      .post("http://localhost:3001/bus/search", formData)
       .then((response) => {
         console.log("Success:", response.data);
         setBusData(response.data);
@@ -62,13 +63,18 @@ const Home = () => {
             <div className="fromInput">
               <label htmlFor="from">Where Are You Now:</label>
               <div className="input flex">
-                <input
+                <select
                   type="text"
-                  placeholder="From..."
+                  name="departure"
                   value={departure}
-                  onChange={(e) => setDeparture(e.target.value)} // Update state
+                  onChange={(e) => setDeparture(e.target.value)}
                   required
-                />
+                >
+                  <option>From ...</option>
+                  {cities.map((city) => (
+                    <option value={city}>{city}</option>
+                  ))}
+                </select>
                 <GrLocation className="icon" />
               </div>
             </div>
@@ -76,13 +82,18 @@ const Home = () => {
             <div className="destinationInput">
               <label htmlFor="to">Where You Want to Go:</label>
               <div className="input flex">
-                <input
+                <select
                   type="text"
-                  placeholder="To..."
+                  name="arrival"
                   value={arrival}
-                  onChange={(e) => setArrival(e.target.value)} // Update state
+                  onChange={(e) => setArrival(e.target.value)}
                   required
-                />
+                >
+                  <option>To ...</option>
+                  {cities.map((city) => (
+                    <option value={city}>{city}</option>
+                  ))}
+                </select>
                 <GrLocation className="icon" />
               </div>
             </div>

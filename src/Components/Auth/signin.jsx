@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./signin.css";
+import "./styles.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -12,12 +12,19 @@ const Login = () => {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/login", { email, password })
+      .post("http://localhost:3001/user/login", { email, password })
       .then((result) => {
-        console.log(result);
-        if (result.data.message == "success") {
-          sessionStorage.setItem("username", result.data.username);
-          navigate("/");
+        if (result.data.message === "success") {
+          const user = result.data.user;
+          sessionStorage.setItem("username", user.name);
+          sessionStorage.setItem("role", user.role);
+          sessionStorage.setItem("userId", user._id);
+
+          if (user.role === "admin") {
+            navigate("/admin-dashboard");
+          } else {
+            navigate("/");
+          }
         }
       })
       .catch((err) => console.log(err));
@@ -50,7 +57,7 @@ const Login = () => {
 
           <div className="nav-buttons">
             <button className="auth-btn">
-              <Link to={"/signin"}>Don't have an account? SignIn</Link>
+              <Link to={"/signup"}>Don't have an account? SignIn</Link>
             </button>
           </div>
 
