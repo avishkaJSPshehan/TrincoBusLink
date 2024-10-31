@@ -29,14 +29,14 @@ const BookSeat = () => {
 
   const handleProceed = async (selecteSeats) => {
     if (!selecteSeats[0]) return;
-    const res = await axios.post("http://localhost:3001/bus/book", {
+    const data = {
       busId: busId,
       date: date,
       userId: userId,
       seats: selecteSeats,
-    });
-    console.log(res.data)
-    navigate(`/payment?amount=${bus.price}`);
+    };
+    const param = btoa(JSON.stringify(data));
+    navigate(`/payment?amount=${bus.price}&data=${param}`);
   };
 
   return (

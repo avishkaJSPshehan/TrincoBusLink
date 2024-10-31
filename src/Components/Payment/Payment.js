@@ -8,6 +8,7 @@ import axios from "axios";
 function Payment() {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
+  const [busData, setBusData] = useState();
 
   useEffect(() => {
     (async () => {
@@ -20,6 +21,9 @@ function Payment() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const amount = params.get("amount");
+    const _data = atob(params.get("data"));
+    const data = JSON.parse(_data);
+    setBusData(data);
     (async () => {
       const res = await axios.post(
         "http://localhost:3001/payment/create-payment-intent",
@@ -35,7 +39,7 @@ function Payment() {
       <h1>React Stripe and the Payment Element</h1>
       {clientSecret && stripePromise && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
-          <CheckoutForm />
+          <CheckoutForm busData={busData} />
         </Elements>
       )}
     </>

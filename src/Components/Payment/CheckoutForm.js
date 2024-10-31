@@ -2,7 +2,7 @@ import { PaymentElement } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
 
-export default function CheckoutForm() {
+export default function CheckoutForm({ busData }) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -10,6 +10,7 @@ export default function CheckoutForm() {
   const [isProcessing, setIsProcessing] = useState(false);
 
   const handleSubmit = async (e) => {
+    const busDataParam = btoa(JSON.stringify(busData));
     e.preventDefault();
 
     if (!stripe || !elements) {
@@ -24,7 +25,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `${window.location.origin}/completion`,
+        return_url: `${window.location.origin}/completion?data=${busDataParam}`,
       },
     });
 
