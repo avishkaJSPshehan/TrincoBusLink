@@ -8,6 +8,8 @@ import FindABus from "./pages/find-a-bus-page";
 import BookSeat from "./pages/seat-book-page";
 import AdminDashboardPage from "./pages/admin-dashboard";
 import SignUpPage from "./pages/signup-page";
+import Payment from "./Components/Payment/Payment";
+import Completion from "./Components/Payment/Completion";
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
           <Route path="/find-a-bus" element={<FindABus />} />
           <Route path="/book-seat" element={<BookSeat />} />
           <Route path="/admin-dashboard" element={<AdminDashboardPage />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/completion" element={<Completion />} />
         </Routes>
       </BrowserRouter>
     </>

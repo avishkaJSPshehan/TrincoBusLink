@@ -35,9 +35,8 @@ const BookSeat = () => {
       userId: userId,
       seats: selecteSeats,
     });
-
-    console.log(res.data);
-    navigate("/");
+    console.log(res.data)
+    navigate(`/payment?amount=${bus.price}`);
   };
 
   return (
