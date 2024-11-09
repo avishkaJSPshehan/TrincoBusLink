@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./completion.css";
 
 function Completion(props) {
   useEffect(() => {
@@ -19,7 +21,12 @@ function Completion(props) {
       console.log(res.data);
     })();
   }, []);
-  return <h1>Thank you! 🎉</h1>;
+  return (
+    <body>
+      <p className="completion">Thank you! 🎉</p>
+      <p className="booking">Seat Booking Successfully</p>
+    </body>
+  );
 }
 
 export default Completion;

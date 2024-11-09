@@ -4,6 +4,8 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import './form.css';
+
 
 function Payment() {
   const [stripePromise, setStripePromise] = useState(null);
@@ -36,12 +38,12 @@ function Payment() {
 
   return (
     <>
-      <h1>React Stripe and the Payment Element</h1>
       {clientSecret && stripePromise && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
           <CheckoutForm busData={busData} />
         </Elements>
       )}
+
     </>
   );
 }

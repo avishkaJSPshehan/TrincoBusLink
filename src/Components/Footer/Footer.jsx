@@ -173,7 +173,7 @@ const Footer = () => {
 
           <div className="footerDiv flex">
             <small>BEST TRAVEL WEBSITE</small>
-            <small>COPYRIGHTS RESERVED ByteBuilders 2024</small>
+            <small>COPYRIGHTS RESERVED Isuri Lak 2024</small>
           </div>
         </div>
       </div>

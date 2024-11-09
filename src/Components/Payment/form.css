@@ -1,0 +1,89 @@
+/* General styling for the form container */
+#payment-form {
+    margin-top: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Payment element styling */
+#payment-element {
+    
+    padding: 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fafafa;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#payment-element:focus-within {
+    border-color: #3d5afe;
+    box-shadow: 0 0 8px rgba(61, 90, 254, 0.15);
+}
+
+/* Button styling */
+#submit {
+    width: 100%;
+    padding: 14px;
+    background-color: #3d5afe;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#submit:hover {
+    background-color: #304ffe;
+}
+
+#submit:active {
+    transform: scale(0.98);
+}
+
+#submit:disabled {
+    background-color: #9ab3e5;
+    cursor: not-allowed;
+}
+
+/* Loading text styling inside button */
+#button-text {
+    display: inline-block;
+}
+
+/* Styling for the message area */
+#payment-message {
+    font-size: 15px;
+    color: #e53935; /* Red color for error messages */
+    margin-top: 12px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Success message */
+#payment-message.success {
+    color: #43a047; /* Green for success */
+}
+
+@media (max-width: 480px) {
+    #payment-form {
+        padding: 20px 15px;
+    }
+
+    #submit {
+        font-size: 16px;
+    }
+}

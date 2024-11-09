@@ -13,7 +13,7 @@ const AddBus = ({ busToUpdate, setBusToUpdate }) => {
     duration: "",
     busType: "",
     model: "",
-    scheduled: "",
+    busNo: "",
     depotName: "",
     price: "",
     availableSeats: "",
@@ -32,7 +32,7 @@ const AddBus = ({ busToUpdate, setBusToUpdate }) => {
         duration: "",
         busType: "",
         model: "",
-        scheduled: "",
+        busNo: "",
         depotName: "",
         price: "",
         availableSeats: "",
@@ -69,7 +69,7 @@ const AddBus = ({ busToUpdate, setBusToUpdate }) => {
         duration: "",
         busType: "",
         model: "",
-        scheduled: "",
+        busNo: "",
         depotName: "",
         price: "",
         availableSeats: "",
@@ -88,7 +88,7 @@ const AddBus = ({ busToUpdate, setBusToUpdate }) => {
       duration: "",
       busType: "",
       model: "",
-      scheduled: "",
+      busNo: "",
       depotName: "",
       price: "",
       availableSeats: "",
@@ -185,13 +185,13 @@ const AddBus = ({ busToUpdate, setBusToUpdate }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="scheduled">Scheduled</label>
+            <label htmlFor="busNo">Bus No.</label>
             <input
-              type="date"
-              name="scheduled"
-              value={formData.scheduled}
+              type="text"
+              name="Bus No."
+              value={formData.busNo}
               onChange={handleInputChange}
-              required
+              // required
             />
           </div>
           <div className="form-group">

@@ -3,7 +3,6 @@ import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import BusDetails from "../Components/Book Seat/BusDetails";
 import SeatChart from "../Components/Book Seat/SeatChart";
-import FareBreakdown from "../Components/Book Seat/FareBreakdown";
 import axios from "axios";
 import SeatSelect from "../Components/Book Seat/SeatSelect";
 import { useNavigate } from "react-router-dom";
@@ -45,7 +44,6 @@ const BookSeat = () => {
       {bus && <BusDetails bus={bus} date={date} />}
       {/* <SeatChart /> */}
       <SeatSelect busId={busId} date={date} handleProceed={handleProceed} />
-      <FareBreakdown />
       <Footer />
     </div>
   );

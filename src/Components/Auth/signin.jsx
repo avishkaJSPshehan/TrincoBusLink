@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // New state for error message
   const navigate = useNavigate();
 
   const handleLoginSubmit = (e) => {
@@ -25,6 +26,8 @@ const Login = () => {
           } else {
             navigate("/");
           }
+        } else if (result.data.message === "error") {
+          setErrorMessage(result.data.error); // Set error message if login fails
         }
       })
       .catch((err) => console.log(err));
@@ -51,6 +54,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Display error message */}
           <button type="submit" className="auth-btn">
             Login
           </button>

@@ -1,6 +1,10 @@
 import { PaymentElement } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
+import './form.css';
+import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
+
 
 export default function CheckoutForm({ busData }) {
   const stripe = useStripe();
@@ -39,6 +43,8 @@ export default function CheckoutForm({ busData }) {
   };
 
   return (
+    <>
+
     <form id="payment-form" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
       <button disabled={isProcessing || !stripe || !elements} id="submit">
@@ -49,5 +55,7 @@ export default function CheckoutForm({ busData }) {
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
     </form>
+    <Footer />
+    </>
   );
 }
