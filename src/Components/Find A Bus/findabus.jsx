@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./BusSearch.css";
-import busImage from "../../Assets/bus_1.jpg"; // Default image
+import sltb from "../../Assets/bus_1.jpg"; // SLTB
+import pvt from "../../Assets/bus_2.jpg"; // Private
 import { Link } from "react-router-dom";
 
 const BusSearch = ({ departure, arrival, busData, travelDate }) => {
@@ -62,7 +63,7 @@ const BusSearch = ({ departure, arrival, busData, travelDate }) => {
         <div key={bus._id} className="bus-card">
           <div className="bus-details">
             <div className="bus-image">
-              <img src={busImage} alt="Bus" />{" "}
+              <img src={bus.busType === "SLTB" ? sltb : pvt} alt="Bus" />{" "}
               {/* You can update image dynamically if available */}
             </div>
             <div className="bus-info">

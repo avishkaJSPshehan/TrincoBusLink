@@ -1,6 +1,7 @@
 import React from "react";
 import "./BusDetails.css";
-import busImage from "../../Assets/bus_1.jpg";
+import sltb from "../../Assets/bus_1.jpg"; // SLTB
+import pvt from "../../Assets/bus_2.jpg"; // Private
 
 const BusDetails = ({ bus, date }) => {
   return (
@@ -14,7 +15,7 @@ const BusDetails = ({ bus, date }) => {
       </div>
       <div className="bus-summary">
         <div className="bus-image">
-          <img src={busImage} alt="Bus" />
+          <img src={bus.busType === "SLTB" ? sltb : pvt} alt="Bus" />
         </div>
         <div className="route-info">
           <div className="route">
