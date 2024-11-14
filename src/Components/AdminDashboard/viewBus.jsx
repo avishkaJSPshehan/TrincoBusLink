@@ -26,7 +26,7 @@ const ViewBus = ({ handleDelete, handleUpdate }) => {
               <th>Duration</th>
               <th>Bus Type</th>
               <th>Model</th>
-              <th>Scheduled</th>
+              <th>Bus Number</th>
               <th>Depot Name</th>
               <th>Price</th>
               <th>Available Seats</th>
@@ -43,7 +43,7 @@ const ViewBus = ({ handleDelete, handleUpdate }) => {
                 <td>{bus.duration}</td>
                 <td>{bus.busType}</td>
                 <td>{bus.model}</td>
-                <td>{bus.scheduled}</td>
+                <td>{bus.busNo}</td>
                 <td>{bus.depotName}</td>
                 <td>{bus.price}</td>
                 <td>{bus.availableSeats}</td>

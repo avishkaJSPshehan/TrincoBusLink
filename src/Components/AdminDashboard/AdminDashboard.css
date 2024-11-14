@@ -129,6 +129,9 @@
 .edit-btn {
   background-color: #007bff;
   color: white;
+  padding-left: 21px;
+  padding-right: 21px;
+  margin-bottom: 5px;
 }
 
 .delete-btn {

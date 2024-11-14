@@ -164,19 +164,19 @@ const AddBus = ({ busToUpdate, setBusToUpdate }) => {
           </div>
           <div className="form-group">
             <label htmlFor="busType">Bus Type</label>
-            {/* <input
+            <input
               type="text"
               name="busType"
               value={formData.busType}
               onChange={handleInputChange}
               placeholder="Bus Type"
               required
-            /> */}
-            <select>
+            />
+            {/* <select>
               <option >---</option>
               <option value="SLTB">SLTB</option>
               <option value="PVT">Private</option>
-            </select>
+            </select> */}
           </div>
           <div className="form-group">
             <label htmlFor="model">Model</label>
